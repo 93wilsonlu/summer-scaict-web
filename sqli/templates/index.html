@@ -1,0 +1,54 @@
+<html>
+    <head>
+        {{ bootstrap.load_css() }}
+    </head>
+    <body>
+        <div class="container mt-5 w-75">
+            <div class="row mb-1">
+                <h1>無名書店</h1>
+                <p>查詢你想看的書：</p>
+            </div>
+            <form class="row g-2 mb-5" method="get">
+                <div class="col-8 col-lg-4">
+                    <input
+                        type="text"
+                        class="form-control"
+                        name="name"
+                        id="name"
+                    />
+                </div>
+                <div class="col-4 col-lg-2">
+                    <button type="submit" class="btn btn-primary">
+                        搜尋
+                    </button>
+                </div>
+            </form>
+
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+                {% for product in data %}
+                <div class="col">
+                    <div class="card">
+                        <img
+                            src="{{ product.img }}"
+                            class="card-img-top"
+                            alt="..."
+                        />
+                        <div class="card-body">
+                            <h5 class="card-title">{{ product.name }}</h5>
+                            <p class="card-text">
+                                <small class="text-muted"
+                                    >{{ product.price }}$</small
+                                >
+                            </p>
+                            <a href="{{ product.url }}" class="btn btn-primary"
+                                >查看更多</a
+                            >
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {{ bootstrap.load_js() }}
+    </body>
+</html>

@@ -1,0 +1,24 @@
+CREATE TABLE IF NOT EXISTS Books (
+  id INTEGER PRIMARY KEY,
+  name TEXT NOT NULL,
+  price INTEGER DEFAULT 0 NOT NULL,
+  url TEXT,
+  img TEXT
+);
+
+INSERT INTO Books VALUES (1, '一分鐘驚艷簡報術', 450, 'https://www.books.com.tw/products/0010777984', './static/img/一分鐘驚艷簡報術.jpeg');
+INSERT INTO Books VALUES (2, '正宗CIA詐騙術', 230, 'https://www.books.com.tw/products/0010477312', './static/img/正宗CIA詐騙術.jpeg');
+INSERT INTO Books VALUES (3, '思考中醫', 380, 'https://www.books.com.tw/products/0010553835', './static/img/思考中醫.jpeg');
+INSERT INTO Books VALUES (4, '思考的技術', 360, 'https://www.books.com.tw/products/0010671489', './static/img/思考的技術.jpeg');
+INSERT INTO Books VALUES (5, '創新的用途理論', 450, 'https://www.books.com.tw/products/0010760251', './static/img/創新的用途理論.jpeg');
+INSERT INTO Books VALUES (6, '給孩子的商業啟蒙', 400, 'https://www.books.com.tw/products/0010955948', './static/img/給孩子的商業啟蒙.jpeg');
+INSERT INTO Books VALUES (7, '精準提問的力量', 320, 'https://www.books.com.tw/products/0010776819', './static/img/精準提問的力量.jpeg');
+
+CREATE TABLE IF NOT EXISTS User (
+  id INTEGER PRIMARY KEY,
+  name TEXT NOT NULL,
+  password TEXT NOT NULL
+);
+
+INSERT INTO User VALUES (1, 'admin', 'flag{Dat4b4s3_1s_4we50m3_Righ7?}');
+INSERT INTO User VALUES (2, 'guest', 'guest');

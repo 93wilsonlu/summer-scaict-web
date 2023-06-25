@@ -1,0 +1,29 @@
+version: '0.1'
+
+services:
+  file-upload:
+    build: file-upload
+    networks:
+      - external
+      - internal
+    ports:
+      - 8300:80
+  sqli:
+    build: sqli
+    networks:
+      - external
+      - internal
+    ports:
+      - 8301:8301
+  ssti:
+    build: ssti
+    networks:
+      - external
+      - internal
+    ports:
+      - 8302:8302
+
+networks:
+  internal:
+    internal: true
+  external:

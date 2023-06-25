@@ -1,0 +1,5 @@
+AddType application/x-httpd-php .php7 .phps .phtml .phtm
+
+<Files "flag.txt">
+    Deny from all
+</Files>
