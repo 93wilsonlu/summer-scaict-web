@@ -22,6 +22,13 @@ services:
       - internal
     ports:
       - 8302:8302
+  advanced_ssti:
+    build: advanced_ssti
+    networks:
+      - external
+      - internal
+    ports:
+      - 8303:8303
 
 networks:
   internal:

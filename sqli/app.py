@@ -5,18 +5,21 @@ import sqlite3
 app = Flask(__name__)
 bootstrap = Bootstrap5(app)
 
+
 def get_db():
     db = getattr(g, '_database', None)
     if db is None:
         db = g._database = sqlite3.connect('./db.sqlite')
     return db
 
+
 @app.teardown_appcontext
 def close_connection(exception):
     db = getattr(g, '_database', None)
     if db is not None:
         db.close()
-    
+
+
 @app.route('/', methods=['GET'])
 def index():
     cur = get_db().cursor()
@@ -26,7 +29,7 @@ def index():
         query = f'SELECT * FROM Books where name LIKE \'%{name}%\''
     else:
         query = 'SELECT * FROM Books'
-    
+
     app.logger.info(query)
     res = cur.execute(query)
     data = res.fetchall()
